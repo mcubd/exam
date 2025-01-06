@@ -647,7 +647,7 @@
             console.log(uri);
 
             navigator.clipboard.writeText(uri).then(() => {
-                console.log("Text copied to clipboard:", text);
+                console.log("Text copied to clipboard:", uri);
                 alert('Url Copied');
             }).catch((err) => {
                 console.error("Failed to copy text:", err);
