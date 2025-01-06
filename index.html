@@ -416,7 +416,7 @@
 
 
                 try {
-                    const res = await fetch("http://192.168.0.103:3000/ac_get_all", {
+                    const res = await fetch("https://exambd2.vercel.app/ac_get_all", {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ "name": getCookie("boiTitle") }),
@@ -584,7 +584,7 @@
 
 
                 try {
-                    const res = await fetch("http://192.168.0.103:3000/ac_create", {
+                    const res = await fetch("https://exambd2.vercel.app/ac_create", {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ "name": val, "cycel": cycel, "gname": gname, "gmail": gmail, "gpic": gpic }),
