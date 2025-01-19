@@ -1354,7 +1354,7 @@ Swal.fire({
                 // Redirect on confirm button click
                 if (result.isConfirmed || result.isDismissed) {
                     let currentUrl = window.location.href;
-                    let newUrl = currentUrl.replace('test', 'result');
+                    let newUrl = currentUrl.replace('test.html', 'result.html');
                     window.location.href = newUrl; // Replace with your URL
                 }
             })
