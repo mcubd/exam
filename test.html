@@ -9,6 +9,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.js"></script>
 
 
+    <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.15.10/dist/sweetalert2.all.min.js
+"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.15.10/dist/sweetalert2.min.css
+" rel="stylesheet">
+
+
     <script>
         var MQ = MathQuill.getInterface(2);                
     </script>
@@ -127,7 +135,7 @@
             /* margin-top: 20px; */
             width: 30%;
 
-
+            align-items: center;
 
 
         }
@@ -251,9 +259,9 @@
         }
     </style>
 
-<style>
-    .title0{
-        width: 100%;
+    <style>
+        .title0 {
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -261,105 +269,632 @@
             margin-top: 15px;
             margin-bottom: 35px;
 
+        }
+
+        .submit {
+            padding: 15px 30px;
+            background-color: #28a745;
+            display: inline-block;
+            margin-left: 75%;
+            margin-top: 50px;
+
+
+            border-radius: 10px;
+        }
+
+        .timer-display {
+            font-size: 25px;
+            padding: 10px;
+            background-color: #3B82F6;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+
+        }
+    </style>
+
+    <!-- header footer style -->
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ecf0f1;
+        }
+
+        .header .company-name {
+            font-size: 1.5rem;
+            color: #ecf0f1;
+            text-transform: uppercase;
+        }
+
+        .footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 4rem;
+
+        }
+
+        .footer p {
+            font-size: 1rem;
+        }
+    </style>
+
+    <!-- login style 2 style tag below -->
+    <style>
+        .mobile-input {
+            display: flex;
+            align-items: center;
+            border: 2px solid #dddddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f9f9f9;
+            margin-bottom: 20px;
+            padding: 10px 10px;
+            width: 50%;
+        }
+
+
+        .pnext {
+            width: 50%;
+            display: block;
+            background-color: #CECFD8;
+            padding: 13px 10px;
+            font-size: 1rem;
+            text-align: center;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .mobile-input img {
+            height: 24px;
+            width: 36px;
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+
+        .mobile-input span {
+            font-weight: bold;
+            color: #555555;
+            margin-right: 10px;
+        }
+
+        .mobile-input input {
+            border: none;
+            outline: none;
+            flex: 1;
+            font-size: 16px;
+            padding: 5px;
+            background: none;
+        }
+
+        .mobile-input input::placeholder {
+            color: #bbbbbb;
+        }
+
+        .login {
+            width: 40%;
+
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .hidd {
+            display: none;
+        }
+    </style>
+    <style>
+        .otp-input {
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            margin: 10px;
+            outline: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Focus effect */
+        .otp-input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+            background-color: #f1f1f1;
+        }
+
+        /* Valid input styling */
+        .otp-input:valid {
+            background-color: #e6f7ff;
+            border-color: #66ccff;
+        }
+
+        /* Invalid input styling */
+        .otp-input:invalid {
+            background-color: #ffe6e6;
+            border-color: #f44336;
+        }
+
+        /* Smooth hover effect for the input fields */
+        .otp-input:hover {
+            border-color: #007bff;
+            cursor: pointer;
+        }
+
+        .pnext2 {
+            margin-top: 15px;
+            width: 60%;
+            display: block;
+            background-color: #CECFD8;
+            padding: 13px 10px;
+            font-size: 1rem;
+            text-align: center;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .uname {
+            margin-left: auto;
+            color: white;
+            font-size: 28px;
+            margin-right: 28px;
+            font-family: sans-serif;
+
+        }
+    </style>
+<style>
+    .lds-ring {
+        display: inline-block;
+        position: fixed;
+        top: 50vh;
+        left: 50vw;
+        width: 1.875rem;
+        height: 1.875rem
     }
-.submit{
-    padding: 15px 30px;
-    background-color: #28a745;
-    display: inline-block;
-    float: right;
-    margin-top: 50px;
-    margin-right: 20%;
-    margin-bottom: 80px;
-    border-radius: 10px;
-}
+
+    .lds-ring div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        border: .3rem solid #AEC6CF;
+        border-radius: 50%;
+        border-color: #AEC6CF transparent transparent;
+        width: 1.875rem;
+        height: 1.875rem;
+        animation: lds-ring 1.2s cubic-bezier(.5, 0, .5, 1) infinite
+    }
+
+    .lds-ring div:nth-child(1) {
+        animation-delay: -.45s
+    }
+
+    .lds-ring div:nth-child(2) {
+        animation-delay: -.3s
+    }
+
+    .lds-ring div:nth-child(3) {
+        animation-delay: -.15s
+    }
+
+    @keyframes lds-ring {
+        0% {
+            transform: rotate(0)
+        }
+
+        to {
+            transform: rotate(360deg)
+        }
+    }
+</style>
+<style>
+    .hidd {
+        display: none;
+    }
+
+    .overlay {
+        z-index: 2000;
+    }
+
+    .overlay2 {
+        z-index: 4000;
+    }
+
+    .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+     
+            transition: opacity 0.3s ease;
+
+            opacity: 1;
+            visibility: visible;
+        }
+
+    .popup {
+        z-index: 3000;
+    }
+
+    .lds-ring {
+        z-index: 5000;
+    }
 </style>
 
 </head>
 
 <body>
-    <div id="a"></div>
-
-   <div class="title0">
-        <p id="testt"> </p>
-    </div>
-
-    <div id="parent" class="parent">
-        <!-- <div class="item">
-
-
-
-    <div class="qpart">
-
-        <svg width="28px" viewBox="0 0 24 24" fill="#C00000" xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M15.75 5H8.25C7.55964 5 7 5.58763 7 6.3125V19L12 15.5L17 19V6.3125C17 5.58763 16.4404 5 15.75 5Z"
-                stroke="grey" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-
-        <span id="static1">fgfdgfdgcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccdgg </span>
-
-
-
-
+    <div class="hidd" id="loadingg_slow_vercel">
+        <div class="overlay overlay2 active"></div>
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 
 
 
-    <div id="abcdpart" class="abcdpart">
-        <div class="container_abcd">
-            <div class="roww1">
-                <div id="abcd_a" class="item_abcd"><span class="txt_cen">a)</span> <span class="abcd_span"
-                        id="abcd_span1"></span> </div>
-                <div id="abcd_b" class="item_abcd"><span class="txt_cen">b)</span> <span class="abcd_span"
-                        id="abcd_span2"></span></div>
+    <header class="header">
+        <div id="logoo" onclick="homee()" class="logo"></div>
+        <div id="logoo1" class="company-name"> </div>
+    </header>
+
+
+    <div id="login" class="login hidd">
+
+
+
+        <div id="mobile" class="mobile">
+            <h1>Log in to perticipate in The exam</h1>
+
+            <span>মোবাইল নম্বর *</span>
+            <div class="mobile-input">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAUCAYAAAB8gkaAAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAF6SURBVHgBvZW/S8NAFMe/SVvb+qMtKmKhYEHq1EVwdXJy6R+ggzhaRRFciosuBTc33Z1dXDq4qzj5A9RBMJaALtJYsSbXJvFlEMTa3CWafoZww937HO9e3pOwVFiAhF0AKQSFDYW+WxKKhQdaZBE8mtwlkUMqLLoz2bIx/9xE/t1CyAZqdPKEjh8NC4eA0M5llaGkMKRI+J0VtYnHmIy5fByX/TI3DnfHJkl27o020RdjuoXKRQMzNZMXyl3mpK2kGOCRoIvs3+odLyQk26gyiJJmFooq8yebfDORa1jwwuxLC75ko8w9Jb8x/uEzjQOmd1mEk4iOsiuBUv7JTZ8EX7K73hDOEt6Ex4MR+JI57GV6IEqVfu6D9B9khyMRlLN8YT0sYXUiSt3EPY3cdlXORmHSDFp8YsgY7UVzTW+7lovhPBnihYIzYoTKzmlL05qJqbqJOFXdK12zMhTGKUl0WRIJIS77D5w309ANaFrLsOx1WioIFg22vf0JElZ0M8k3ifYAAAAASUVORK5CYII="
+                    alt="BD Flag">
+                <span>+88</span>
+                <!-- <input type="tel" placeholder="Enter your mobile number"> -->
+
+                <input inputmode="numeric" name="phone" id="phone" aria-describedby="phone" pattern="\d*"
+                    autocomplete="off" type="tel" maxlength="11" placeholder="মোবাইল নম্বর দিন" value="">
             </div>
-            <br>
-            <div class="roww2">
-                <div id="abcd_c" class="item_abcd"><span class="txt_cen">c)</span> <span class="abcd_span"
-                        id="abcd_span3"></span></div>
-                <div id="abcd_d" class="item_abcd"><span class="txt_cen">d)</span> <span class="abcd_span"
-                        id="abcd_span4"></span></div>
+
+            <span onclick="get_otp()" id="pnext" class="pnext">Next</span>
+
+        </div>
+
+        <div id="otp" class="otp hidd">
+            <h2>Enter OTP</h2>
+            <div class="otp-fields">
+                <input type="tel" inputmode="numeric" autocomplete="off" maxlength="1" class="otp-input" id="otp1"
+                    oninput="moveFocus(this, 'otp2')" />
+                <input type="tel" inputmode="numeric" autocomplete="off" maxlength="1" class="otp-input" id="otp2"
+                    oninput="moveFocus(this, 'otp3')" />
+                <input type="tel" inputmode="numeric" autocomplete="off" maxlength="1" class="otp-input" id="otp3"
+                    oninput="moveFocus(this, 'otp4')" />
+                <input type="tel" inputmode="numeric" autocomplete="off" maxlength="1" class="otp-input" id="otp4"
+                    oninput="moveFocus(this, '')" />
             </div>
-        </div>
 
+            <span onclick="verify_otp()" id="pnext2" class="pnext2">Next</span>
+        </div>
     </div>
 
-    <span class="q_no">Q No. 1</span>
+    <div id="restt">
 
 
 
-    <div class="choose" onclick="choosed(event)">
-        <div class="choose_abcd  choose_abcd_hover" >
-a
-        </div>
-        <div class="choose_abcd  choose_abcd_hover" >
-            b
-        </div>
-        <div class="choose_abcd  choose_abcd_hover" >
-            c
-        </div>
-        <div class="choose_abcd   choose_abcd_hover" >
-            d
+        <div id="a"></div>
+
+        <div class="title0">
+            <p id="testt"> </p>
         </div>
 
+        <div id="parent" class="parent">
+
+        </div>
+
+
+        <div class="submit" id="submitt0" onclick="submit0()">
+            Submit
+        </div>
+
+        <div class="timer-display" id="timerDisplay">00:00</div>
 
     </div>
+    <footer class="footer">
+        <p>&copy; 2025 Acs Exam Portal. All rights reserved.</p>
+    </footer>
+    <script type="module">
+        import balanced from 'https://cdn.jsdelivr.net/npm/balanced-match@3.0.1/index.js';
+        window.balanced = balanced;
 
+    </script>
 
-</div> -->
+    <script src="./latex.js"></script>
 
-    </div>
-
-
-    <div class="submit" onclick="submit0()">
-        Submit
-    </div>
-
+    
 
     <script>
 
 
 
+        document.getElementById('phone').addEventListener('input', function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            let pnext = document.getElementById("pnext")
+
+            console.log(this.value.length);
+            if (this.value.length == 11) {
+
+                pnext.style.backgroundColor = "#5468FF"
+            } else {
+                pnext.style.backgroundColor = "#CECFD8"
+
+            }
+
+        });
+
+
+        function moveFocus(currentInput, nextInputId) {
+
+            if (currentInput.value.length === 1 && nextInputId) {
+                document.getElementById(nextInputId).focus();
+            }
+            let allLengthOne = true;
+
+            let clss = document.getElementsByClassName("otp-input")
+            for (let el of clss) {
+                console.log(el.value.length);
+                if (el.value.length != 1) {
+                    allLengthOne = false;
+                }
+            }
+            let pnext = document.getElementById("pnext2")
+            console.log();
+
+            if (allLengthOne) {
+
+                pnext.style.backgroundColor = "#5468FF"
+
+
+            } else {
+
+
+                pnext.style.backgroundColor = "#CECFD8"
+
+            }
+
+
+
+
+
+
+        }
+
+        // Enable back navigation with deletion
+        const inputs = document.querySelectorAll('.otp-input');
+        inputs.forEach(input => {
+            input.addEventListener('keydown', function (event) {
+                if (event.key === 'Backspace' && !input.value) {
+                    const previousInput = getPreviousNonEmptyInput(input);
+                    if (previousInput) {
+                        previousInput.focus();
+                        previousInput.value = '';  // Clear the previous non-empty input
+                    }
+                }
+            });
+        });
+
+        function getPreviousNonEmptyInput(input) {
+            let prev = input.previousElementSibling;
+            while (prev && !prev.classList.contains('otp-input')) {
+                prev = prev.previousElementSibling;
+            }
+            while (prev && prev.value === '') {
+                prev = prev.previousElementSibling;
+            }
+            return prev && prev.value !== '' ? prev : null;
+        }
+    </script>
+
+    <script>
+        window.getCookie = function (name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        window.restt_post = async function (uri, obj) {
+            try {
+
+
+                const res = await fetch(uri, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(obj),
+                });
+                if (res.status === 200) {
+                    let ress = await res.json()
+                    return ress;
+
+
+                }
+                else {
+                    alert('Error. status !200');
+                    return false;
+                }
+
+
+            } catch (err) {
+                console.error('Error:', err);
+                alert('Error. in Post Request' + err);
+                return false;
+            }
+
+
+        }
+
+        if (getCookie("boi_uuid") == undefined) {
+            document.getElementById("login").classList.remove("hidd")
+            document.getElementById("restt").classList.add("hidd")
+        } else {
+
+            document.getElementById("logoo1").innerHTML = getCookie("boi_uname")
+
+        }
+
+        window.get_otp = async function () {
+            let val = document.getElementById('phone').value;
+            let len = val.length
+            if (len == 11) {
+
+                if (document.getElementById('phone').value.startsWith("01")) {
+                    document.getElementById("loadingg_slow_vercel").classList.remove("hidd");
+
+                    let res = await restt_post("https://exambd2.vercel.app/gen_otp", { num: val })
+                    if (res != false) {
+                document.getElementById("loadingg_slow_vercel").classList.add("hidd");
+
+                        console.log(res);
+                        document.cookie = `boi_unum=${val}; max-age=15552000; path=/`;
+                        document.getElementById('mobile').classList.add("hidd")
+                        document.getElementById('otp').classList.remove("hidd")
+
+                    }
+
+
+
+                } else {
+                    document.getElementById("loadingg_slow_vercel").classList.add("hidd");
+
+                    alert("Bangladeshi Number Plz");
+
+                }
+
+
+            } else {
+                document.getElementById("loadingg_slow_vercel").classList.add("hidd");
+
+                alert("Number is Not Valid,Plz Cheak The Number You Enterd.");
+
+            }
+
+        }
+
+
+        window.verify_otp = async function () {
+            let otp = '';
+
+
+
+
+
+            let allLengthOne = true;
+
+            let clss = document.getElementsByClassName("otp-input")
+            for (let el of clss) {
+
+                if (el.value.length != 1) {
+                    allLengthOne = false;
+                }
+            }
+
+            if (!allLengthOne) { return false; }
+
+            console.log("verifying...");
+            document.querySelectorAll('.otp-input').forEach(input => {
+                otp += input.value; // Concatenate all values
+            });
+            let unum = getCookie("boi_unum")
+
+
+
+            try {
+
+                document.getElementById("loadingg_slow_vercel").classList.remove("hidd");
+
+                const res = await fetch("https://exambd2.vercel.app/verify_otp", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ num: unum, otp: otp }),
+                });
+                if (res.status == 200) {
+                    let ress = await res.json()
+                    document.getElementById("loadingg_slow_vercel").classList.add("hidd");
+
+                    let doc = ress.doc;
+                    console.log(doc);
+                    document.cookie = `boi_uuid=${doc["_id"]}; max-age=15552000; path=/`;
+                    document.cookie = `boi_uname=${doc["uname"]}; max-age=15552000; path=/`;
+                    document.cookie = `boi_unum=${doc["unum"]}; max-age=15552000; path=/`;
+
+                    window.location.reload()
+
+
+
+                }
+                else {
+                    document.getElementById("loadingg_slow_vercel").classList.add("hidd");
+
+                    alert('Wrong otp');
+
+                }
+
+
+            } catch (err) {
+                document.getElementById("loadingg_slow_vercel").classList.add("hidd");
+
+                console.error('Error:', err);
+                alert('Error. in Post Request' + err);
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+    </script>
+
+
+    <script>
+
+
+        window.getCookie = function (name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
 
         window.loadd = async function () {
             try {
@@ -373,25 +908,38 @@ a
                 console.log('n:', nValue);
                 console.log('id:', idValue);
 
+                window.cnamee = nValue;
 
 
 
+
+
+                document.getElementById("loadingg_slow_vercel").classList.remove("hidd");
 
                 let urll = "https://exambd2.vercel.app/ac_test"
                 const res = await fetch(urll, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ "name": nValue,"id":idValue }),
+                    body: JSON.stringify({ "name": nValue, "id": idValue }),
                 });
                 if (res.status === 200) {
+                document.getElementById("loadingg_slow_vercel").classList.add("hidd");
+
                     let resss = await res.json()
-                    let ress= resss.doc.data
-                    console.log(ress);
-                    document.getElementById("testt").innerHTML=resss.doc.titlee
+                    let ress = resss.doc.data
+                    console.log(resss.doc);
+                    document.getElementById("testt").innerHTML = resss.doc.titlee
+                    document.getElementById("logoo").innerHTML = nValue
+                    if (getCookie("boi_uname") != undefined) {
+                        document.getElementById("logoo1").innerHTML = getCookie("boi_uname");
+                    }
+
+
+
 
 
                     let shuffledArray = await random_arr(ress);
-                   
+
 
 
                     for (let iri = 0; iri < shuffledArray.length; iri++) {
@@ -403,6 +951,8 @@ a
                         //         resolve0();
                         //     }, 1000);
                         // });
+                        if (element.dlt != undefined) { if (element.dlt == "yes") { continue; } }
+
                         await new Promise(async (resolve0) => {
 
 
@@ -450,21 +1000,21 @@ a
 
     </div>
 
-    <span class="q_no">Q No. ${iri + 1}</span>
+    <span class="q_no">Q No. </span>
 
 
 
-    <div class="choose" onclick="choosed(event)">
-        <div class="choose_abcd  choose_abcd_hover" >
+    <div order_db="${element.order}"  class="choose" onclick="choosed(event)">
+        <div optnn="a" class="choose_abcd  choose_abcd_hover" >
 a
         </div>
-        <div class="choose_abcd  choose_abcd_hover" >
+        <div optnn="b" class="choose_abcd  choose_abcd_hover" >
             b
         </div>
-        <div class="choose_abcd  choose_abcd_hover" >
+        <div optnn="c" class="choose_abcd  choose_abcd_hover" >
             c
         </div>
-        <div class="choose_abcd   choose_abcd_hover" >
+        <div optnn="d" class="choose_abcd   choose_abcd_hover" >
             d
         </div>
 
@@ -481,57 +1031,29 @@ a
                             let i = 0;
                             let input = element.question
 
+                            let arr66 = await latex_arr(input);
+                      
 
-                            for (let i = 0; i < input.length; i++) {
-                                await new Promise((resolve1) => {
-
-
-
-                                    let startIndex = i;
-                                    while (i < input.length && input[i] !== '\\') {
-                                        i++;
-                                    }
-                                    if (i > startIndex) {
-                                        arr.push(input.slice(startIndex, i));
-                                    }
-
-                                    if (i < input.length && input[i] === '\\') {
-                                        startIndex = i;
-                                        i++;
-                                        while (i < input.length && input[i] !== ' ' && input[i] !== '\\') {
-                                            i++;
-                                        }
-                                        arr.push(input.slice(startIndex, i));
-                                    }
-
-                                    while (i < input.length && input[i] === ' ') {
-                                        i++;
-                                    }
-                                    console.log(`Doing async work for item: ${i}`);
-                                    resolve1();
-
-                                });
-                            }
-
-
-
-                            // console.warn(arr);
-
-                            for (let i = 0; i < arr.length; i++) {
+                            for (let i = 0; i < arr66.length; i++) {
                                 await new Promise((resolve2) => {
-                                    let itemm = arr[i]
+                                    let itemm = arr66[i]
 
 
-                                    if (itemm != "\\") {
-
-                                        if (itemm[0] != "\\") {
-                                            document.getElementById(`id-${iri + 1}`).insertAdjacentHTML("beforeend", " " + arr[i] + " ");
-                                        }
-                                        else {
-                                            document.getElementById(`id-${iri + 1}`).insertAdjacentHTML("beforeend", `<span class="mathh">${arr[i]} </span>`);
-                                        }
-
+                                    if (itemm[0] == "\\") {
+                                        document.getElementById(`id-${iri + 1}`).insertAdjacentHTML("beforeend", `<span class="mathh">${arr66[i]} </span>`);
                                     }
+                                    else if (itemm.includes("^")) {
+                                        document.getElementById(`id-${iri + 1}`).insertAdjacentHTML("beforeend", `<span class="mathh">${arr66[i]} </span>`);
+                                    }
+                                    else {
+                                        document.getElementById(`id-${iri + 1}`).insertAdjacentHTML("beforeend", " " + arr66[i] + " ");
+                                    }
+
+
+
+
+ 
+ 
                                     resolve2();
                                 });
                             };
@@ -551,6 +1073,12 @@ a
 
                     };
 
+                    const elementss = document.querySelectorAll('.q_no');
+                    elementss.forEach((elemenst, i) => {
+                        elemenst.innerHTML = `Q No.${i + 1}`
+
+                    })
+
                     var elements = document.getElementsByClassName('mathh');
                     for (var ddx of elements) {
                         MQ.StaticMath(ddx);
@@ -561,19 +1089,111 @@ a
 
 
 
+                    setTimeout(() => {
+                        if (window.cnamee != undefined) {
+                            let user = window.cnamee;
+                            let exam = resss.doc.titlee
+                            let uuid = getCookie("boi_uname");
+                            try {
+                                window.aaia = async function () {
+
+
+
+                                    const res = await fetch("https://exambd2.vercel.app/test_create", {
+                                        method: 'POST',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify({ "uuid": uuid, "cname": user, "uname": "zayn", "id": idValue }),
+                                    });
+                                    if (res.status === 200) {
+
+                                        let ress = await res.json()
+                                        console.log(ress)
+                                        window.id66 = ress.id
+                                        // window.location.href = './2.html';
+
+                                        start_timer(resss.doc.duration)
+
+                                    }
+                                    else {
+                                        // alert('Error. Couldn`t Submit');
+                                    }
+
+                                }; aaia()
+                            } catch (err) {
+                                console.error('Error:', err);
+                                // alert('Error. Couldn`t Submit');
+                            }
+
+
+                        }
+
+
+
+                    }, 200);
+
+
+
 
 
                 } else {
+                    document.getElementById("loadingg_slow_vercel").classList.add("hidd");
+
                     //alert('Failed to load');
                 }
 
             } catch (err) {
+                document.getElementById("loadingg_slow_vercel").classList.add("hidd");
+
                 console.error('Error:', err);
                 //  alert('Failed to load');
             }
 
         }; loadd()
 
+
+
+        window.homee = async function () {
+            window.open(`./${window.cnamee}.html`, "_self")
+
+        }
+        window.start_timer = async function (t) {
+
+
+            let countDownDuration = Number(t) * 60 * 1000;
+            let now = new Date().getTime();
+            let countDownDate = now + countDownDuration;
+            let x = setInterval(function () {
+
+                var currentTime = new Date().getTime();
+
+                var distance = countDownDate - currentTime;
+
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                if (hours == 0) {
+                    // document.getElementById("timerDisplay").innerHTML =
+                    //                     `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+
+                    document.getElementById("timerDisplay").innerHTML = minutes + ":" + seconds;
+                    //  document.getElementById("timerDisplay").innerHTML =  `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+
+                } else {
+                    document.getElementById("timerDisplay").innerHTML = hours + ":" + minutes + ":" + seconds;
+                }
+
+
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("timerDisplay").innerHTML = "00:00";
+                    submit0()
+                }
+            }, 1000);
+
+
+
+        }
 
         window.abcd_add = async function (element, iri0) {
 
@@ -601,56 +1221,26 @@ a
                     } else { }
 
 
+                    let arr66 = await latex_arr(input);
 
-                    for (let i = 0; i < input.length; i++) {
-                        await new Promise((resolve1) => {
-
-
-                            let startIndex = i;
-                            while (i < input.length && input[i] !== '\\') {
-                                i++;
-                            }
-                            if (i > startIndex) {
-                                arr.push(input.slice(startIndex, i));
-                            }
-
-                            if (i < input.length && input[i] === '\\') {
-                                startIndex = i;
-                                i++;
-                                while (i < input.length && input[i] !== ' ' && input[i] !== '\\') {
-                                    i++;
-                                }
-                                arr.push(input.slice(startIndex, i));
-                            }
-
-                            while (i < input.length && input[i] === ' ') {
-                                i++;
-                            }
-                            console.log(`Doing async work for item: ${i}`);
-                            resolve1();
-
-                        });
-                    }
-
-
-
-                    // console.warn(arr);
-
-                    for (let i = 0; i < arr.length; i++) {
+                    for (let i = 0; i < arr66.length; i++) {
                         await new Promise((resolve2) => {
-                            let itemm = arr[i]
+                            let itemm = arr66[i]
 
-
-                            if (itemm != "\\") {
-
-                                if (itemm[0] != "\\") {
-                                    document.getElementById(`${idd + iri0}`).insertAdjacentHTML("beforeend", " " + arr[i] + " ");
-                                }
-                                else {
-                                    document.getElementById(`${idd + iri0}`).insertAdjacentHTML("beforeend", `<span class="mathh">${arr[i]} </span>`);
-                                }
-
+                            if (itemm[0] == "\\") {
+                                document.getElementById(`${idd + iri0}`).insertAdjacentHTML("beforeend", `<span class="mathh">${arr66[i]} </span>`);
                             }
+                            else if (itemm.includes("^")) {
+                                document.getElementById(`${idd + iri0}`).insertAdjacentHTML("beforeend", `<span class="mathh">${arr66[i]} </span>`);
+                            }
+                            else {
+                                document.getElementById(`${idd + iri0}`).insertAdjacentHTML("beforeend", " " + arr66[i] + " ");
+                            }
+                        
+
+                           
+
+                     
                             resolve2();
                         });
                     };
@@ -664,6 +1254,12 @@ a
 
 
 
+            var elements = document.getElementsByClassName('mathh');
+
+
+            for (var ddx of elements) {
+                MQ.StaticMath(ddx);
+            }
 
 
 
@@ -704,10 +1300,92 @@ a
         };
 
 
-         window.submit0 =async function () {
-            console.log(455555555555);
-        
+        window.submit0 = async function () {
+
+            document.getElementById("submitt0").style.pointerEvents = 'none';
+            console.log(window.full_submit);
+            let fulll = window.full_submit;
+
+
+            try {
+
+
+                const url = new URL(window.location.href);
+                const params = new URLSearchParams(url.search);
+
+                const nValue = params.get('n');
+                const idValue = params.get('id');
+                console.log(nValue);
+
+
+
+                document.getElementById("loadingg_slow_vercel").classList.remove("hidd");
+
+                const res = await fetch("https://exambd2.vercel.app/test_submit", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ cname: nValue, exam_paper: window.id66, order: "1", abcd: "a", full_submit: fulll,q_id:idValue }),
+                });
+                if (res.status === 200) {
+                    document.getElementById("loadingg_slow_vercel").classList.add("hidd");
+
+                    let ress = await res.json()
+                    console.log(ress)
+
+                    const elementss = document.querySelectorAll('.item');
+                     
+                    
+const total = elementss.length;
+let ss=Number(ress.data.correct)+Number(ress.data.wrong)
+let not_ans=Number(total)-ss
+ 
+
+ 
+
+
+
+Swal.fire({
+                icon: 'success',
+                title: 'Congratulations!',
+                text: `You scored ${ress.data.score}, correct ${ress.data.correct}, Wrong ${ress.data.wrong}, not answerd ${not_ans}`,
+                confirmButtonText: 'OK' ,
+                allowOutsideClick: true
+            }).then((result) => {
+                // Redirect on confirm button click
+                if (result.isConfirmed || result.isDismissed) {
+                    let currentUrl = window.location.href;
+                    let newUrl = currentUrl.replace('test', 'result');
+                    window.location.href = newUrl; // Replace with your URL
+                }
+            })
+
+                    // window.location.href = './2.html';
+
+                }
+                else {
+                    document.getElementById("loadingg_slow_vercel").classList.add("hidd");
+
+                    // alert('Error. Couldn`t Submit');
+                }
+
+
+            } catch (err) {
+                document.getElementById("loadingg_slow_vercel").classList.add("hidd");
+
+                console.error('Error:', err);
+                // alert('Error. Couldn`t Submit');
+            }finally {
+
+                document.getElementById("submitt0").style.pointerEvents = 'auto';
+
+}
+
+
+
+
+
         };
+        window.full_submit = {}
 
         window.choosed = async function (e) {
             let ele = e.target.closest(".choose_abcd")
@@ -730,6 +1408,49 @@ a
 
             if (ele != undefined && donee.length == 0) {
                 ele.classList.add("donee")
+                const abcd = ele.getAttribute('optnn');
+                const order = parent.getAttribute('order_db');
+                window.full_submit = { ...window.full_submit, [`order_${order}`]: abcd }
+
+
+
+
+                try {
+                    window.aaab = async function () {
+
+                        const url = new URL(window.location.href);
+                        const params = new URLSearchParams(url.search);
+
+                        const nValue = params.get('n');
+                        const idValue = params.get('id');
+                        console.log(nValue);
+
+
+
+
+                        const res = await fetch("https://exambd2.vercel.app/test_submit", {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ cname: nValue, exam_paper: window.id66, order: order, abcd: abcd }),
+                        });
+                        if (res.status === 200) {
+
+                            let ress = await res.json()
+                            console.log(ress)
+
+                            // window.location.href = './2.html';
+
+                        }
+                        else {
+                            // alert('Error. Couldn`t Submit');
+                        }
+
+                    }; aaab()
+                } catch (err) {
+                    console.error('Error:', err);
+                    // alert('Error. Couldn`t Submit');
+                }
+
             }
 
         };
