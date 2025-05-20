@@ -1370,6 +1370,7 @@
                     mathField.latex(`${currentLatex} ${text}`);
 
                     mathField.focus();
+                       console.error(text);
                 }).catch(function (error) {
                     console.error("Error reading clipboard content: ", error);
                 });
